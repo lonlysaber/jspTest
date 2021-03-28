@@ -23,8 +23,8 @@
     <input style = "border-radius: 15px;background: #EAEAAE;" type="text"  name="Emile" value=" Emile" required="required"
            onFocus="if(value==defaultValue){value='';this.style.color='#000'}"
            onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999;border-radius: 15px;"><br/><br>
-    <b>Gender：</b><input type="radio" name="sex" checked="checked">female
-    <input type="radio" name="sex" checked="checked">male<br/><br/>
+    Gender: <label><input type="radio" name="gender" value="male"></label>
+    Male <label><input type="radio" name="gender" value="female"></label>Female<br/>
     <input style = "border-radius: 15px;background: #EAEAAE;" type="text"  name="date" value=" date of birth (yyyy/mm/dd)" required="required"
            onFocus="if(value==defaultValue){value='';this.style.color='#ffaa00'}"
            onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999;border-radius: 15px;"><br/><br>
