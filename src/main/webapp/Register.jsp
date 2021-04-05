@@ -5,12 +5,8 @@
   Time: 22:10
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>form</title>
-</head>
-<body>
+<%@include file="header.jsp"%>
+This is My Register JSP page.<br>
 <form style="text-align:center;background: cadetblue;" method="post" action="register">
     <span style="color:#ff0000">New User Registration</span><br/>
     <input style = "border-radius: 15px;background: #EAEAAE;" type="text" name="Username" value = "Username" required="required"
@@ -31,5 +27,4 @@
 
     <input style="color:#ff0000" type="submit" value="Register">
 </form>
-</body>
-</html>
+<%@include file="footer.jsp"%>
