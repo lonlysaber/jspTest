@@ -18,23 +18,24 @@ public class RegisterServlet extends HttpServlet {
     String password;
 
     public void init(){
-        ServletContext context = getServletContext();
-        //获取参数值
-        driver = context.getInitParameter("driver");
-        url = context.getInitParameter("url");
-        username = context.getInitParameter("username");
-        password = context.getInitParameter("password");
-        try {
-            Class.forName(driver);
-            con = DriverManager.getConnection(url,username,password);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+//        ServletContext context = getServletContext();
+//        //获取参数值
+//        driver = context.getInitParameter("driver");
+//        url = context.getInitParameter("url");
+//        username = context.getInitParameter("username");
+//        password = context.getInitParameter("password");
+//        try {
+//            Class.forName(driver);
+//            con = DriverManager.getConnection(url,username,password);
+//        } catch (ClassNotFoundException | SQLException e) {
+//            e.printStackTrace();
+//        }
+        con = (Connection) getServletContext().getAttribute("con");
 
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 
     @Override
@@ -63,10 +64,11 @@ public class RegisterServlet extends HttpServlet {
         try {
             Statement creatdbst = con.createStatement();
             String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthdate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+BirthDate+"')";
-            creatdbst.executeUpdate(insertDb);
-            String selectDb = "select * from userdb.dbo.usertable";
-            ResultSet rs = creatdbst.executeQuery(selectDb);
-                writer.println(
+            int n = creatdbst.executeUpdate(insertDb);
+            System.out.println("n-->"+n);
+            //String selectDb = "select * from userdb.dbo.usertable";
+            //ResultSet rs = creatdbst.executeQuery(selectDb);
+                /*writer.println(
                     "<table border=\"1\">" +
                     "<tr>"               +
                     "<td>ID</td>"        +
@@ -95,12 +97,15 @@ public class RegisterServlet extends HttpServlet {
                                 "<td>" + BirthDate + "</td>" +
                                 "</tr>"
                                 );
-            }
-
+            }*/
+            //request.setAttribute("rsname",rs);
+            //request.getRequestDispatcher("userList.jsp").forward(request,response);
+            System.out.println("i am in RegisterServlet-->doPost()-->afterforward()");
+            response.sendRedirect("login.jsp");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        writer.println("</table>");
+        //writer.println("</table>");
 
 
 
