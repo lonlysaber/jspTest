@@ -12,7 +12,7 @@ public class SearchServlet extends HttpServlet {
         String txt = request.getParameter("text");
         String search = request.getParameter("search");
         response.setContentType("text/html");
-        if(txt==null){
+        if(txt.equals("")){
             response.sendRedirect("index.jsp");
         }
         else{
