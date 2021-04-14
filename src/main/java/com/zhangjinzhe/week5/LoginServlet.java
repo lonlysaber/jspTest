@@ -1,5 +1,8 @@
 package com.zhangjinzhe.week5;
 
+import com.zhangjinzhe.dao.UserDao;
+import com.zhangjinzhe.model.User;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -34,15 +37,30 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        //doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username=request.getParameter("username");
         String password=request.getParameter("password");
+        UserDao userDao = new UserDao();
+        try {
+            User user = userDao.findByUsernamePassword(con,username,password);
+            if(user!=null){
+                request.setAttribute("user",user);
+                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
 
-        response.setContentType("text/html");
+            }else{
+                System.out.println("dddddddddddddddddddddd");
+                request.setAttribute("message","Username or Password error");
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        /*response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         try {
 
@@ -80,6 +98,8 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+         */
     }
 
     @Override
