@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDao implements IUserDao{
     @Override
     public boolean saveUser(Connection con, User user) throws SQLException {
-        String sql ="insert usertable  id=?,username=?,password=?,emaile=?,gender=?,birthdate=?";
+        String sql ="insert usertable into id=?,username=?,password=?,emaile=?,gender=?,birthdate=?";
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,user.getId());
         st.setString(2,user.getUsername());
@@ -36,19 +36,20 @@ public class UserDao implements IUserDao{
     @Override
     public int deleteUser(Connection con, User user) throws SQLException {
         String sql ="delete from usertable where id=?";
+        //DELETE FROM Person WHERE LastName = 'Wilson'
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,user.getId());
         ResultSet rs = st.executeQuery();
-        user = null;
-        if(rs.next()){
-            user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setEmail(rs.getString("email"));
-            user.setGender(rs.getString("gender"));
-            user.setBirthdate(rs.getString("birthdate"));
-        }
+//        user = null;
+//        if(rs.next()){
+//            user = new User();
+//            user.setId(rs.getInt("id"));
+//            user.setUsername(rs.getString("username"));
+//            user.setPassword(rs.getString("password"));
+//            user.setEmail(rs.getString("email"));
+//            user.setGender(rs.getString("gender"));
+//            user.setBirthdate(rs.getString("birthdate"));
+//        }
         return 0;
     }
 
