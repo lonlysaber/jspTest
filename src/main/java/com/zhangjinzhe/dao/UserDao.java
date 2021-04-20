@@ -39,17 +39,7 @@ public class UserDao implements IUserDao{
         //DELETE FROM Person WHERE LastName = 'Wilson'
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,user.getId());
-        ResultSet rs = st.executeQuery();
-//        user = null;
-//        if(rs.next()){
-//            user = new User();
-//            user.setId(rs.getInt("id"));
-//            user.setUsername(rs.getString("username"));
-//            user.setPassword(rs.getString("password"));
-//            user.setEmail(rs.getString("email"));
-//            user.setGender(rs.getString("gender"));
-//            user.setBirthdate(rs.getString("birthdate"));
-//        }
+
         return 0;
     }
 
