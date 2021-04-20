@@ -19,17 +19,7 @@ public class UserDao implements IUserDao{
         st.setString(4,user.getEmail());
         st.setString(5,user.getGender());
         st.setString(6,user.getBirthdate());
-        ResultSet rs = st.executeQuery();
-        user = null;
-        if(rs.next()){
-            user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setEmail(rs.getString("email"));
-            user.setGender(rs.getString("gender"));
-            user.setBirthdate(rs.getString("birthdate"));
-        }
+
         return true;
     }
 
@@ -53,17 +43,7 @@ public class UserDao implements IUserDao{
         st.setString(4,user.getEmail());
         st.setString(5,user.getGender());
         st.setString(6,user.getBirthdate());
-        ResultSet rs = st.executeQuery();
-        user = null;
-        if(rs.next()){
-            user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setEmail(rs.getString("email"));
-            user.setGender(rs.getString("gender"));
-            user.setBirthdate(rs.getString("birthdate"));
-        }
+
         return 0;
     }
 
