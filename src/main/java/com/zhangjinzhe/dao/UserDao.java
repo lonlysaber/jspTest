@@ -9,9 +9,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserDao implements IUserDao{
+
+
     @Override
-    public boolean saveUser(Connection con, User user) throws SQLException {
-        String sql ="insert usertable into id=?,username=?,password=?,emaile=?,gender=?,birthdate=?";
+    public int saveUser(Connection con, User user) throws SQLException {
+        String sql ="insert usertable into id=?,username=?,password=?,email=?,gender=?,birthdate=?";
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,user.getId());
         st.setString(2,user.getUsername());
@@ -20,7 +22,7 @@ public class UserDao implements IUserDao{
         st.setString(5,user.getGender());
         st.setString(6,user.getBirthdate());
 
-        return true;
+        return st.executeUpdate();
     }
 
     @Override
@@ -29,22 +31,22 @@ public class UserDao implements IUserDao{
         //DELETE FROM Person WHERE LastName = 'Wilson'
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,user.getId());
-
-        return 0;
+        return st.executeUpdate();
     }
 
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
-        String sql ="update usertable set id=?,username=?,password=?,emaile=?,gender=?,birthdate=?";
+        String sql ="update usertable set username=?,password=?,email=?,gender=?,birthdate=? where id =?";
         PreparedStatement st = con.prepareStatement(sql);
-        st.setInt(1,user.getId());
-        st.setString(2,user.getUsername());
-        st.setString(3,user.getPassword());
-        st.setString(4,user.getEmail());
-        st.setString(5,user.getGender());
-        st.setString(6,user.getBirthdate());
 
-        return 0;
+        st.setString(1,user.getUsername());
+        st.setString(2,user.getPassword());
+        st.setString(3,user.getEmail());
+        st.setString(4,user.getGender());
+        st.setString(5,user.getBirthdate());
+        st.setInt(6,user.getId());
+        System.out.println("i am in updateUser()");
+        return st.executeUpdate();
     }
 
     @Override
