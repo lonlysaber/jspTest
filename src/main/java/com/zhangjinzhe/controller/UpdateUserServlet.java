@@ -39,7 +39,7 @@ public class UpdateUserServlet extends HttpServlet {
             UserDao userDao =new UserDao();
             int rst = userDao.updateUser(con, u);
             if (rst!=0){
-                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+                request.getRequestDispatcher("/login").forward(request,response);
             }
 
         } catch (SQLException throwables) {
