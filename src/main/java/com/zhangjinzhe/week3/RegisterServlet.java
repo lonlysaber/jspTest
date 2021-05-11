@@ -35,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 
     @Override
@@ -54,11 +54,11 @@ public class RegisterServlet extends HttpServlet {
 //        writer.println("<br>date"+date);
 //        writer.close();
         String id = null;
-        String Username = request.getParameter("Username");
-        String Password = request.getParameter("Password");
-        String Email = request.getParameter("Emile");
+        String Username = request.getParameter("username");
+        String Password = request.getParameter("password");
+        String Email = request.getParameter("emile");
         String Gender = request.getParameter("gender");
-        String BirthDate = request.getParameter("date");
+        String BirthDate = request.getParameter("birthDate");
 
         PrintWriter writer = response.getWriter();
         try {
@@ -67,49 +67,15 @@ public class RegisterServlet extends HttpServlet {
             int n = creatdbst.executeUpdate(insertDb);
             System.out.println("n-->"+n);
             //String selectDb = "select * from userdb.dbo.usertable";
-            //ResultSet rs = creatdbst.executeQuery(selectDb);
-                /*writer.println(
-                    "<table border=\"1\">" +
-                    "<tr>"               +
-                    "<td>ID</td>"        +
-                    "<td>UserName</td>"  +
-                    "<td>Password</td>"  +
-                    "<td>Email</td>"     +
-                    "<td>Gender</td>"    +
-                    "<td>BirthDate</td>" +
-                    "</tr>"
-                );
-            while(rs.next()) {
-                id =rs.getString("id");
-                Username = rs.getString("UserName");
-                Password = rs.getString("Password");
-                Email = rs.getString("Email");
-                Gender = rs.getString("Gender");
-                BirthDate = rs.getString("BirthDate");
-                writer.println(
+            //ResultSet rs = creatdbst.executeQuery(insertDb);
 
-                                "<tr>"     +
-                                "<td>" + id       + "</td>"   +
-                                "<td>" + Username + "</td>" +
-                                "<td>" + Password  + "</td>" +
-                                "<td>" + Email     + "</td>" +
-                                "<td>" + Gender    + "</td>" +
-                                "<td>" + BirthDate + "</td>" +
-                                "</tr>"
-                                );
-            }*/
             //request.setAttribute("rsname",rs);
             //request.getRequestDispatcher("userList.jsp").forward(request,response);
             System.out.println("i am in RegisterServlet-->doPost()-->afterforward()");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        //writer.println("</table>");
-
-
-
-
 
     }
 }

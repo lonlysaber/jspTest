@@ -13,7 +13,7 @@
 %>
 <form style="text-align: center;background: #9932CD" method="post" action="login">
     <h1 style="text-align: center;color: #ff00ff">login</h1>
-    username:<input type="text" name="username"><br/>
+    Username:<input type="text" name="username"><br/>
     password:<input type="password" name="password"><br/>
 <%--    <input type="text" name="username" value="" placeholder="username"></br></br>--%>
 <%--    <input type="password" name="password" value="" placeholder="password"></br></br>--%>

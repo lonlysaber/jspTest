@@ -25,6 +25,6 @@
     <tr><td>Email:</td><td><%=u.getEmail()%></td></tr>
     <tr><td>Gender:</td><td><%=u.getGender()%></td></tr>
     <tr><td>BirthDate:</td><td><%=u.getBirthdate()%></td></tr>
-    <tr><a href="updateUser">Update User</a></tr>
+    <tr><td><a href="updateUser">Update User</a></td></tr>
 </table>
 <%@include file="footer.jsp"%>

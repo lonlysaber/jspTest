@@ -21,7 +21,6 @@
     Gender: <input type="radio" name="gender" value="male" <%="male".equals(u.getGender())?"checked":""%>>Male
     <input type="radio" name="gender" value="famale" <%="famale".equals(u.getGender())?"checked":""%>>Famale<br/><br/>
     <input style = "border-radius: 15px;background: #EAEAAE;" type="text"  name="date" value="<%=u.getBirthdate()%>" required="required"/><br/><br>
-
     <input style="color:#ff0000" type="submit" value="Save Changes">
 </form>
 <%@include file="footer.jsp"%>

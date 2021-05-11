@@ -9,11 +9,11 @@ import java.io.IOException;
 public class SearchServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String txt = request.getParameter("text");
+        String txt = request.getParameter("txt");
         String search = request.getParameter("search");
         response.setContentType("text/html");
         if(txt.equals("")){
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("WEB-INF/views/index.jsp");
         }
         else{
 

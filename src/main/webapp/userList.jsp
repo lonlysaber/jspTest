@@ -17,7 +17,6 @@
 </tr>
     <%
         ResultSet rs = (ResultSet) request.getAttribute("rsname");
-
         if(rs==null){
     %>
     <tr>
@@ -25,10 +24,7 @@
     </tr>
     <% }else {
 
-
-
         while (rs.next()) {
-
             out.println("<tr>");
             out.println("<td>" + rs.getString("id") + "</td>");
             out.println("<td>" + rs.getString("UserName") + "</td>");
@@ -37,7 +33,6 @@
             out.println("<td>" + rs.getString("Gender") + "</td>");
             out.println("<td>" + rs.getString("BirthDate") + "</td>");
             out.println("</tr>");
-
         }
 
     }

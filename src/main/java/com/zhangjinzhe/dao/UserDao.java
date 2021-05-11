@@ -13,14 +13,13 @@ public class UserDao implements IUserDao{
 
     @Override
     public int saveUser(Connection con, User user) throws SQLException {
-        String sql ="insert usertable into id=?,username=?,password=?,email=?,gender=?,birthdate=?";
+        String sql ="insert usertable into username=?,password=?,email=?,gender=?,birthdate=?";
         PreparedStatement st = con.prepareStatement(sql);
-        st.setInt(1,user.getId());
-        st.setString(2,user.getUsername());
-        st.setString(3,user.getPassword());
-        st.setString(4,user.getEmail());
-        st.setString(5,user.getGender());
-        st.setString(6,user.getBirthdate());
+        st.setString(1,user.getUsername());
+        st.setString(2,user.getPassword());
+        st.setString(3,user.getEmail());
+        st.setString(4,user.getGender());
+        st.setString(5,user.getBirthdate());
 
         return st.executeUpdate();
     }

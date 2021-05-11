@@ -32,7 +32,6 @@ public class UpdateUserServlet extends HttpServlet {
         String Email = request.getParameter("Emile");
         String Gender = request.getParameter("gender");
         String BirthDate = request.getParameter("date");
-
         User u = new User(id,Username,Password,Email,Gender,BirthDate);
 
         try {
@@ -40,11 +39,14 @@ public class UpdateUserServlet extends HttpServlet {
             int rst = userDao.updateUser(con, u);
             if (rst!=0){
                 request.getRequestDispatcher("/login").forward(request,response);
+            }else {
+                request.setAttribute("message", "Username or Password Error!!!");
+                request.getRequestDispatcher("WEB-INF/views/updateUser.jsp").forward(request, response);
             }
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+
     }
 }
