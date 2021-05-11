@@ -7,8 +7,7 @@ import java.io.IOException;
 
 public class FrontEndAuthenticationFilter {
     private HttpServletRequest httpRequest;
-    private static final String[] loginRequiredURLs={
-    "/updateUser","/logout","/myCart"};
+    private static final String[] loginRequiredURLs={"/updateUser","/logout","/myCart"};
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         httpRequest = (HttpServletRequest) request;
         String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
