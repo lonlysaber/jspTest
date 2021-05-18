@@ -7,9 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/admin/*")
-public class AdminAuthenticationFilter {
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+@WebFilter(filterName = "AdminAuthenticationFilter ")
+public class AdminAuthenticationFilter implements Filter {
+    public void init(FilterConfig config) throws ServletException {
+    }
+
+    public void destroy() {
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpSession session = httpRequest.getSession(false);
@@ -30,10 +37,5 @@ public class AdminAuthenticationFilter {
         }else{
             httpResponse.sendRedirect(httpRequest.getContextPath()+"/admin/login");
         }
-    }
-    public void init(FilterConfig config) throws ServletException {
-    }
-
-    public void destroy() {
     }
 }
