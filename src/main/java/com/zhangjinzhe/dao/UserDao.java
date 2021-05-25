@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDao implements IUserDao{
 
 
-    @Override
+    //@Override
     public int saveUser(Connection con, User user) throws SQLException {
         String sql ="insert usertable into username=?,password=?,email=?,gender=?,birthdate=?";
         PreparedStatement st = con.prepareStatement(sql);
@@ -27,7 +27,6 @@ public class UserDao implements IUserDao{
     @Override
     public int deleteUser(Connection con, User user) throws SQLException {
         String sql ="delete from usertable where id=?";
-        //DELETE FROM Person WHERE LastName = 'Wilson'
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,user.getId());
         return st.executeUpdate();

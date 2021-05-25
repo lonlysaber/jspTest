@@ -12,8 +12,6 @@ import java.sql.SQLException;
 public class JDBCServletContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-
-
         ServletContext context = sce.getServletContext();
         //获取参数值
         String driver = context.getInitParameter("driver");
@@ -23,8 +21,8 @@ public class JDBCServletContextListener implements ServletContextListener {
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,username,password);
-            System.out.println("i am in contextInitialized()-->"+con);
-            context.setAttribute("con",con);
+            //System.out.println("i am in contextInitialized()-->"+con);
+            context.setAttribute("con",con);//设定参数
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
