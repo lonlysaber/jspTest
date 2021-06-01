@@ -81,46 +81,7 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        /*response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        try {
 
-//            HttpSession hs = request.getSession(true);
-//            Statement createDbStatement = con.createStatement();
-
-//            String user = "select * from usertable where username='xxx' and password='xxx'";
-//            ResultSet rs = createDbStatement.execute  Query(user);
-            Statement st = con.createStatement();
-//          定义sql语句
-            String user = "select * from usertable where username=" + "'" + username + "'" + "and password='" + password + "'";
-//          使用resultset接受返回数据
-            ResultSet rs = st.executeQuery(user);
-
-            if (rs.next()){
-//                writer.println("Login Success!!!</br>");
-//                writer.println("Welcome"+username);
-                request.setAttribute("id",rs.getInt("id"));
-                request.setAttribute("username",rs.getString("username"));
-                request.setAttribute("password",rs.getString("password"));
-                request.setAttribute("email",rs.getString("email"));
-                request.setAttribute("gender",rs.getString("gender"));
-                request.setAttribute("birthdate",rs.getString("birthdate"));
-                //request.setAttribute("message","Login Success!!!");
-                request.getRequestDispatcher("userInfo.jsp").forward(request,response);
-
-
-            }else {
-//                writer.println("Username or Password error");
-                request.setAttribute("message","Username or Password error");
-                request.getRequestDispatcher("login.jsp").forward(request,response);
-            }
-
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-         */
     }
 
     @Override
