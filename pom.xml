@@ -24,10 +24,22 @@
             <scope>provided</scope>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>jstl</artifactId>-->
+<!--            <version>1.2</version>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
             <version>1.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
         </dependency>
 
         <dependency>
