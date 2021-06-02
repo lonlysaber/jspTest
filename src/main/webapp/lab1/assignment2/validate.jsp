@@ -26,7 +26,7 @@ if(request.getParameter("username").equals("admin") && request.getParameter("pas
     <c:when test="${param.username.equals('zhangjinzhe') && param.password.equals('123456')}">
         <%--todo 3: when username == admin use c:url and c:param to make url = "welcome.jsp?username=admin"--%>
         <c:url value="welcome.jsp?username=admin" var="w">
-            <c:param name="username" value="admin"/>
+            <c:param name="username" value="${param.username}"/>
         </c:url>
 
         <%-- todo 4.use c:redirect to url= welcome.jsp?username=admin--%>
