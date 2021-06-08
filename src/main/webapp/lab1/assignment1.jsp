@@ -25,39 +25,41 @@
     </ul>
     <%-- todo 1 : run assignement1.jsp  --%>
     <%-- todo 2 : use c:forEach to print list 1,3,5,7,9   --%>
+<h1>c:forEach to print list 1,3,5,7,9</h1>
     <ul>
         <c:forEach var="i" begin="1" end="9" step="2">
             <li>$${i}</li>
         </c:forEach>
     </ul>
+<h1>use c:forEach to print 2,4,6,8,10</h1>
    <%-- todo 3 : use c:forEach to print 2,4,6,8,10   --%>
     <ul>
         <c:forEach var="i" begin="2" end="10" step="2">
             <li>$${i}</li>
         </c:forEach>
     </ul>
-<%
 
-%>
 <%
     String[] words ={"one","two","three","four","five","six","seven","eight","nine","ten"};
    pageContext.setAttribute("words", words);
 
 %>
-<%-- todo 5 : use c:forEach to print "one","three","five","seven","nine"  of array --%>
+<%-- todo 4 : use c:forEach to print all elements of array --%>
 <ul>
-
-        <c:forEach  var="w" items="${words}"  step="2">
-    <li>${w}</li>
-        </c:forEach>
-
-</ul>
-    <%-- todo 4 : use c:forEach to print all elements of array --%>
-<ul>
-    <c:forEach var="words" items="${words}" varStatus="index">
+    <c:forEach var="words" items="${words}">
         <li>$${words}</li>
     </c:forEach>
 </ul>
+
+<%-- todo 5 : use c:forEach to print "one","three","five","seven","nine"  of array --%>
+<ul>
+
+        <c:forEach  var="w" items="${words}" step="2">
+            <li>$${w}</li>
+        </c:forEach>
+
+</ul>
+
 
 
 <%
