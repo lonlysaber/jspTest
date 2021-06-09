@@ -21,6 +21,7 @@ public class YourNameFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         System.out.println("YourNameFilter()-->berfore chain");
+
         chain.doFilter(request,response);
         System.out.println("YourNameFilter()-->after chain");
     }
