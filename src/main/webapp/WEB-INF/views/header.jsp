@@ -138,7 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </li> 
 								
 								<!--<li><a href="404.html">404</a></li>-->
-								<li><a href="<%=basePath%>contactUs">Contact</a></li>
+								<li><a href="http://api.map.baidu.com/lbsapi/creatmap/index.html">Contact</a></li>
 							</ul>
 						</div>
 					</div>
